@@ -1,5 +1,4 @@
-# Este script Python é responsável por ler arquivos de texto de um pendrive, decodificar seu conteúdo
-# e, em seguida, processar esses dados para gerar arquivos de resultados com base em algoritmos de escalonamento.
+''' Este script Python é responsável por ler arquivos de texto de um pendrive, decodificar seu conteúdo e, em seguida, processar esses dados para gerar arquivos de resultados com base em algoritmos de escalonamento.'''
 
 # Importa o módulo 'os' para interagir com o sistema operacional, como manipulação de caminhos de arquivo.
 import os
