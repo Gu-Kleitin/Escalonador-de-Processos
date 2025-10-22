@@ -1,20 +1,8 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
 import collections
 
 def calcular_metricas(processos, tempos_resposta, tempos_espera, tempos_turnaround):
-    """
-    Calcula o Tempo de Resposta Médio, Tempo de Espera Médio e Turnaround Médio.
-    Args:
-        processos (list): Lista de processos com suas informações.
-        tempos_resposta (dict): Dicionário com o tempo de resposta de cada processo.
-        tempos_espera (dict): Dicionário com o tempo de espera de cada processo.
-        tempos_turnaround (dict): Dicionário com o tempo de turnaround de cada processo.
 
-    Returns:
-        tuple: (tempo_resposta_medio, tempo_espera_medio, turnaround_medio)
-    """
     num_processos = len(processos)
     if num_processos == 0:
         return 0.0, 0.0, 0.0
@@ -30,14 +18,7 @@ def calcular_metricas(processos, tempos_resposta, tempos_espera, tempos_turnarou
     return tempo_resposta_medio, tempo_espera_medio, turnaround_medio
 
 def fifo(processos):
-    """
-    Implementa o algoritmo de escalonamento FIFO (First-In First-Out).
-    Args:
-        processos (list): Lista de tuplas (id, chegada, burst) para cada processo.
 
-    Returns:
-        tuple: (tempo_resposta_medio, tempo_espera_medio, turnaround_medio)
-    """
     processos_ordenados = sorted(processos, key=lambda x: x[1]) # Ordena por tempo de chegada
 
     tempo_atual = 0
@@ -66,14 +47,7 @@ def fifo(processos):
     return calcular_metricas(processos_ordenados, tempos_resposta, tempos_espera, tempos_turnaround)
 
 def sjf(processos):
-    """
-    Implementa o algoritmo de escalonamento SJF (Shortest Job First) não preemptivo.
-    Args:
-        processos (list): Lista de tuplas (id, chegada, burst) para cada processo.
 
-    Returns:
-        tuple: (tempo_resposta_medio, tempo_espera_medio, turnaround_medio)
-    """
     processos_copia = sorted(processos, key=lambda x: x[1]) # Ordena por tempo de chegada
     
     tempo_atual = 0
@@ -124,14 +98,7 @@ def sjf(processos):
     return calcular_metricas(processos, tempos_resposta, tempos_espera, tempos_turnaround)
 
 def srt(processos):
-    """
-    Implementa o algoritmo de escalonamento SRT (Shortest Remaining Time) preemptivo.
-    Args:
-        processos (list): Lista de tuplas (id, chegada, burst) para cada processo.
 
-    Returns:
-        tuple: (tempo_resposta_medio, tempo_espera_medio, turnaround_medio)
-    """
     processos_copia = sorted(processos, key=lambda x: x[1])
     
     tempo_atual = 0
@@ -183,15 +150,7 @@ def srt(processos):
     return calcular_metricas(processos, tempos_resposta, tempos_espera, tempos_turnaround)
 
 def round_robin(processos, quantum):
-    """
-    Implementa o algoritmo de escalonamento Round Robin.
-    Args:
-        processos (list): Lista de tuplas (id, chegada, burst) para cada processo.
-        quantum (int): O quantum de tempo para o Round Robin.
-
-    Returns:
-        tuple: (tempo_resposta_medio, tempo_espera_medio, turnaround_medio)
-    """
+   
     processos_copia = sorted(processos, key=lambda x: x[1])
     
     tempo_atual = 0

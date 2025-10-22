@@ -1,18 +1,8 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
 import os
 
 def escrever(resultados_por_algoritmo, ns_value, drive_path):
-    """
-    Escreve os resultados dos cálculos em um arquivo de saída no pendrive.
-
-    Args:
-        resultados_por_algoritmo (dict): Um dicionário contendo os resultados para cada algoritmo.
-                                       Ex: {'FIFO': [resposta_media, espera_media, turnaround_medio], ...}
-        ns_value (str): O número formatado do arquivo de teste (ex: '01', '02').
-        drive_path (str): O caminho base para a pasta de trabalho onde o arquivo será salvo.
-    """
+   
     output_filename = f"TESTE-{ns_value}-RESULTADO.txt"
     file_path = os.path.join(drive_path, output_filename)
 
